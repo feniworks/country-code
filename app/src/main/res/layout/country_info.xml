@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingLeft="16dp"
+              android:paddingTop="16dp"
+              android:paddingRight="16dp"
+              tools:ignore="HardcodedText,RtlHardcoded,UseCompoundDrawables,ContentDescription">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+        <ImageView
+            android:id="@+id/countryImg"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/countryTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_vertical"
+            android:text="Germany"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Currency:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/currencyLabel"
+                android:layout_below="@+id/capitalTxt"
+                android:layout_alignRight="@+id/phoneCodeLabel"/>
+
+            <TextView
+                android:id="@+id/phoneCodeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_toRightOf="@+id/phoneCodeLabel"
+                android:singleLine="true"
+                android:text="+49"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone code:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/phoneCodeLabel"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:id="@+id/currencyTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Euro(€)"
+                android:textSize="16sp"
+                android:layout_alignTop="@+id/currencyLabel"
+                android:layout_toRightOf="@+id/currencyLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time zone:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/timeZoneLabel"
+                android:layout_below="@+id/currencyTxt"
+                android:layout_marginBottom="10dp"
+                android:layout_alignRight="@+id/phoneCodeLabel"/>
+
+            <TextView
+                android:id="@+id/timeZoneTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/timeZoneLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="1dp"
+                android:layout_toRightOf="@+id/timeZoneLabel"
+                android:singleLine="true"
+                android:text="UTC+1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capital:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/capitalLabel"
+                android:layout_below="@+id/phoneCodeLabel"
+                android:layout_alignRight="@+id/phoneCodeLabel"
+                />
+
+            <TextView
+                android:id="@+id/capitalTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Berlin"
+                android:textSize="16sp"
+                android:layout_alignTop="@+id/capitalLabel"
+                android:layout_toRightOf="@+id/capitalLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ISO Code:"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:id="@+id/iso2CodeLabel"
+                android:layout_below="@+id/timeZoneLabel"
+                android:layout_alignRight="@+id/timeZoneLabel"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/iso2CodeTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iso2CodeLabel"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/iso2CodeLabel"
+                android:singleLine="true"
+                android:text="de"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

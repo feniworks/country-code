@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/AppTheme.ActionBar</item>
+        <item name="android:statusBarColor">@color/statusBar</item>
+        <item name="android:spinnerStyle">@android:style/Widget.Holo.Light.Spinner</item>
+        <item name="android:navigationBarColor">@color/statusBar</item>
+        <item name="android:colorAccent">@color/actionBar</item>
+    </style>
+    <style name="AppTheme.ActionBar" parent="@android:style/Widget.Material.Light.ActionBar">
+        <item name="android:background">@color/actionBar</item>
+    </style>
+    <style name="SplashTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@color/splash_background</item>
+        <item name="android:navigationBarColor">@color/splash_background</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+</resources>

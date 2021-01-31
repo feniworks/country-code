@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="actionBar" type="color">#FF6600</item>
+    <item name="statusBar" type="color">#dd5800</item>
+    <color name="splash_background">#FF6600</color>
+</resources>

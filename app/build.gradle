@@ -9,12 +9,12 @@ android {
         applicationId "com.feniworks.countrycodenew"
         minSdkVersion 15
         targetSdkVersion 30
-        versionCode 2230
+        versionCode 2232
         versionName "2.3.0"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             // Removes unused resources. Must be FALSE, otherwise all flags will be lost
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

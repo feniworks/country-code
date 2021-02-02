@@ -42,7 +42,7 @@ INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone"
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('673', 'Brunei', 'Bandar Seri Begawan', 'BND', 'BN', '+08:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('359', 'Bulgaria', 'Sofia', 'BGN', 'BG', '+02:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('226', 'Burkina Faso', 'Ouagadougou', 'XOF', 'BF', '00:00');
-INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('257', 'Burundi', 'Bujumbura', 'BIF', 'BI', '+02:00');
+INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('257', 'Burundi', 'Gitega', 'BIF', 'BI', '+02:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('855', 'Cambodia', 'Phnom Penh', 'KHR', 'KH', '+07:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('237', 'Cameroon', 'Yaoundé', 'XAF', 'CM', '+01:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('1', 'Canada', 'Ottawa', 'CAD', 'CA', '-03:00');

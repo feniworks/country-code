@@ -1,5 +1,7 @@
 # Country Code
 
+![Android CI](https://github.com/feniworks/country-code/workflows/Android%20CI/badge.svg?branch=master)
+
 Country Code is an Android app that provides quick information about 200+ countries. It was
 created because of I was looking for an offline database with phone prefixes and I couldn't find
 one that I felt fully comfortable with.

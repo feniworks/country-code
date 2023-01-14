@@ -3,14 +3,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "com.feniworks.countrycodenew"
         minSdkVersion 15
-        targetSdkVersion 30
-        versionCode 2232
-        versionName "2.3.0"
+        targetSdkVersion 33
+        versionCode 2400
+        versionName '2.4.0'
     }
     buildTypes {
         release {
@@ -23,13 +23,14 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'com.feniworks.countrycodenew'
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.21'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0'
 
-    def lifecycle_version = "2.2.0"
+    def lifecycle_version = "2.5.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 }

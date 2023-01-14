@@ -110,7 +110,7 @@ class MainActivity : Activity() {
             R.id.action_about -> {
                 val msg = Html.fromHtml("""
 Developed by Feniworks<br>
-Version ${BuildConfig.VERSION_NAME} (2021-01-31)<br><br>
+Version ${BuildConfig.VERSION_NAME} (2023-01-14)<br><br>
 If you like this application, please rate it with 5 stars in the Play Store :)<br><br>
 
 Icons courtesy of <a href="https://flagpedia.net/">flagpedia.net</a><br><br>

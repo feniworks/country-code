@@ -60,7 +60,7 @@ INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone"
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('242', 'Congo', 'Brazzaville', 'XAF', 'CG', '+01:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('682', 'Cook Islands', 'Avarua', 'NZD', 'CK', '-10:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('506', 'Costa Rica', 'San Jose', 'CRC', 'CR', '-06:00');
-INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('385', 'Croatia', 'Zagreb', 'HRK', 'HR', '+01:00');
+INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('385', 'Croatia', 'Zagreb', 'EUR', 'HR', '+01:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('53', 'Cuba', 'Havana', 'CUP', 'CU', '-05:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('599', 'Curaçao', 'Willemstad', 'ANG', 'CW', '-04:00');
 INSERT INTO countries ("code", "name", "capital", "currency", "iso2", "timezone") VALUES ('357', 'Cyprus', 'Nicosia', 'EUR', 'CY', '+02:00');

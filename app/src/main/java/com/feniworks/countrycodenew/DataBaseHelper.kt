@@ -1,5 +1,6 @@
 package com.feniworks.countrycodenew
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -31,6 +32,7 @@ class DataBaseHelper internal constructor(private val context: Context) : SQLite
         onCreate(db)
     }
 
+    @SuppressLint("Range")
     fun findCountry(countryId: String): ArrayList<String> {
         val data = ArrayList<String>()
         val cursor = db.rawQuery("SELECT * FROM countries WHERE id = $countryId", null)
@@ -81,7 +83,7 @@ class DataBaseHelper internal constructor(private val context: Context) : SQLite
 
     companion object {
         private const val DB_NAME = "data"
-        private const val DATABASE_VERSION = 8
+        private const val DATABASE_VERSION = 9
     }
 
 }

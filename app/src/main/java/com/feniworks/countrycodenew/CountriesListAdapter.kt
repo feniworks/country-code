@@ -11,8 +11,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import java.util.*
 
-class CountriesListAdapter(private val ctx: Context, private val itemsArrayList: ArrayList<CountriesListItem>)
-    : ArrayAdapter<CountriesListItem>(ctx, R.layout.countries_list_item, itemsArrayList) {
+class CountriesListAdapter(
+    private val ctx: Context,
+    private val itemsArrayList: ArrayList<CountriesListItem>
+) : ArrayAdapter<CountriesListItem>(ctx, R.layout.countries_list_item, itemsArrayList) {
     private val originalItemsArrayList: ArrayList<CountriesListItem> = ArrayList(itemsArrayList)
     private var filter: Filter? = null
 
@@ -60,7 +62,7 @@ class CountriesListAdapter(private val ctx: Context, private val itemsArrayList:
     internal inner class TracksListFilter : Filter() {
         override fun performFiltering(constraint: CharSequence): FilterResults {
             val results = FilterResults()
-            val search = constraint.toString().toLowerCase(Locale.ROOT)
+            val search = constraint.toString().lowercase(Locale.ROOT)
 
             if (search.isEmpty()) {
                 val list = ArrayList(originalItemsArrayList)
@@ -73,8 +75,8 @@ class CountriesListAdapter(private val ctx: Context, private val itemsArrayList:
 
                 for (i in 0 until count) {
                     val item = list[i]
-                    val title = item.title.toLowerCase(Locale.ROOT)
-                    val prefix = item.prefix.toLowerCase(Locale.ROOT).substring(1)
+                    val title = item.title.lowercase(Locale.ROOT)
+                    val prefix = item.prefix.lowercase(Locale.ROOT).substring(1)
 
                     if (title.contains(search) || prefix.contains(search))
                         nlist.add(item) // Add found item to the new list

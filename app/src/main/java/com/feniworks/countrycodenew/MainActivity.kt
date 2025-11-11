@@ -1,12 +1,10 @@
 package com.feniworks.countrycodenew
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.app.Activity
 import android.app.ActivityManager
 import android.app.AlertDialog
 import android.graphics.BitmapFactory
-import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.Html
@@ -35,52 +33,56 @@ class MainActivity : Activity() {
 
         db = DataBaseHelper(this)
 
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val bm = BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher)
-            val taskDesc = ActivityManager.TaskDescription(getString(R.string.app_name), bm, resources.getColor(R.color.statusBar))
-            this.setTaskDescription(taskDesc)
-        }
+        val bm = BitmapFactory.decodeResource(resources, R.mipmap.ic_launcher)
+        val taskDesc = ActivityManager.TaskDescription(
+            getString(R.string.app_name),
+            bm,
+            resources.getColor(R.color.statusBar)
+        )
+        this.setTaskDescription(taskDesc)
 
         mainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mainBinding.root)
 
-        mainBinding.countriesList.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            val countryId = (mainBinding.countriesList.getItemAtPosition(position) as CountriesListItem).id
-            val iso2 = (mainBinding.countriesList.getItemAtPosition(position) as CountriesListItem).iso2
+        mainBinding.countriesList.onItemClickListener =
+            AdapterView.OnItemClickListener { _, _, position, _ ->
+                val countryId =
+                    (mainBinding.countriesList.getItemAtPosition(position) as CountriesListItem).id
+                val iso2 =
+                    (mainBinding.countriesList.getItemAtPosition(position) as CountriesListItem).iso2
 
-            val data = db!!.findCountry(countryId)
-            val builder = AlertDialog.Builder(this@MainActivity)
-            // Get the layout inflater
-            val inflater = this@MainActivity.layoutInflater
-            val dialogView = inflater.inflate(R.layout.country_info, null)
+                val data = db!!.findCountry(countryId)
+                val builder = AlertDialog.Builder(this@MainActivity)
+                // Get the layout inflater
+                val inflater = this@MainActivity.layoutInflater
+                val dialogView = inflater.inflate(R.layout.country_info, null)
 
-            val phoneCodeTxt = dialogView.findViewById<TextView>(R.id.phoneCodeTxt)
-            val countryTxt = dialogView.findViewById<TextView>(R.id.countryTxt)
-            val capitalTxt = dialogView.findViewById<TextView>(R.id.capitalTxt)
-            val currencyTxt = dialogView.findViewById<TextView>(R.id.currencyTxt)
-            val timeZoneTxt = dialogView.findViewById<TextView>(R.id.timeZoneTxt)
-            val iso2CodeTxt = dialogView.findViewById<TextView>(R.id.iso2CodeTxt)
-            val flag = dialogView.findViewById<ImageView>(R.id.countryImg)
+                val phoneCodeTxt = dialogView.findViewById<TextView>(R.id.phoneCodeTxt)
+                val countryTxt = dialogView.findViewById<TextView>(R.id.countryTxt)
+                val capitalTxt = dialogView.findViewById<TextView>(R.id.capitalTxt)
+                val currencyTxt = dialogView.findViewById<TextView>(R.id.currencyTxt)
+                val timeZoneTxt = dialogView.findViewById<TextView>(R.id.timeZoneTxt)
+                val iso2CodeTxt = dialogView.findViewById<TextView>(R.id.iso2CodeTxt)
+                val flag = dialogView.findViewById<ImageView>(R.id.countryImg)
 
-            phoneCodeTxt.text = "+" + data[1]
-            countryTxt.text = data[2]
-            capitalTxt.text = data[3]
-            currencyTxt.text = data[4]
-            timeZoneTxt.text = "UTC " + if (data[5] == "null") "N/A" else data[5]
-            iso2CodeTxt.text = data[6]
+                phoneCodeTxt.text = "+" + data[1]
+                countryTxt.text = data[2]
+                capitalTxt.text = data[3]
+                currencyTxt.text = data[4]
+                timeZoneTxt.text = "UTC " + if (data[5] == "null") "N/A" else data[5]
+                iso2CodeTxt.text = data[6]
 
-            val imgID = resources.getIdentifier("flag_$iso2", "drawable", packageName)
-            if (imgID != 0)
-                flag.setImageDrawable(resources.getDrawable(imgID))
+                val imgID = resources.getIdentifier("flag_$iso2", "drawable", packageName)
+                if (imgID != 0)
+                    flag.setImageDrawable(resources.getDrawable(imgID))
 
-            builder
+                builder
                     .setCancelable(true)
                     .setView(dialogView)
                     .setPositiveButton("Close", null)
                     .create()
                     .show()
-        }
+            }
 
         mainBinding.searchView.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
@@ -108,15 +110,17 @@ class MainActivity : Activity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_about -> {
-                val msg = Html.fromHtml("""
+                val msg = Html.fromHtml(
+                    """
 Developed by Feniworks<br>
-Version ${BuildConfig.VERSION_NAME} (2023-01-14)<br><br>
+Version ${BuildConfig.VERSION_NAME} (2025-11-11)<br><br>
 If you like this application, please rate it with 5 stars in the Play Store :)<br><br>
 
 Icons courtesy of <a href="https://flagpedia.net/">flagpedia.net</a><br><br>
 
 Source code: <a href="https://github.com/feniworks/country-code">github.com/feniworks/country-code</a>
-""")
+"""
+                )
                 val s = SpannableString(msg)
                 Linkify.addLinks(s, Linkify.WEB_URLS);
 
@@ -128,7 +132,8 @@ Source code: <a href="https://github.com/feniworks/country-code">github.com/feni
 
                 alert.show()
 
-                (alert.findViewById(android.R.id.message) as TextView).movementMethod = LinkMovementMethod.getInstance()
+                (alert.findViewById(android.R.id.message) as TextView).movementMethod =
+                    LinkMovementMethod.getInstance()
                 return true
             }
         }

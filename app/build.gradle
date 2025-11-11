@@ -3,34 +3,44 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 36
+    buildToolsVersion "36.0.0"
     defaultConfig {
         applicationId "com.feniworks.countrycodenew"
-        minSdkVersion 15
-        targetSdkVersion 33
-        versionCode 2400
-        versionName '2.4.0'
+        minSdkVersion 23
+        targetSdkVersion 36
+        versionCode 2500
+        versionName '2.5.0'
     }
     buildTypes {
         release {
             minifyEnabled true
             // Removes unused resources. Must be FALSE, otherwise all flags will be lost
             shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     buildFeatures {
         viewBinding true
+        buildConfig true
     }
     namespace 'com.feniworks.countrycodenew'
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.21'
 
-    def lifecycle_version = "2.5.1"
+    def lifecycle_version = "2.9.4"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+}
+
+kotlin {
+    jvmToolchain(11)
 }

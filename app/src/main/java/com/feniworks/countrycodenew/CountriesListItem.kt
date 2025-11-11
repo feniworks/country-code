@@ -4,7 +4,14 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import java.util.*
 
-class CountriesListItem(val id: String, val title: String, prefix: String, timezone: String?, val iso2: String, context: Context) {
+class CountriesListItem(
+    val id: String,
+    val title: String,
+    prefix: String,
+    timezone: String?,
+    val iso2: String,
+    context: Context
+) {
     val prefix: String
     val timezone: String
     var icon: Drawable? = null
@@ -15,7 +22,11 @@ class CountriesListItem(val id: String, val title: String, prefix: String, timez
         this.prefix = "+$prefix"
         this.timezone = "UTC $tz"
 
-        val imgID = context.resources.getIdentifier("flag_${iso2.toLowerCase(Locale.ROOT)}", "drawable", context.packageName)
+        val imgID = context.resources.getIdentifier(
+            "flag_${iso2.lowercase(Locale.ROOT)}",
+            "drawable",
+            context.packageName
+        )
         if (imgID != 0)
             this.icon = context.resources.getDrawable(imgID)
     }

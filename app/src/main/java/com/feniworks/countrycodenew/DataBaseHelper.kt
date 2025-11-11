@@ -9,13 +9,18 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.util.*
 
-class DataBaseHelper internal constructor(private val context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DATABASE_VERSION) {
+class DataBaseHelper internal constructor(private val context: Context) :
+    SQLiteOpenHelper(context, DB_NAME, null, DATABASE_VERSION) {
     private val db: SQLiteDatabase = writableDatabase
 
     override fun onCreate(db: SQLiteDatabase) {
         try {
             val inStream = context.assets.open("data.sql")
-            BufferedReader(InputStreamReader(inStream)).forEachLine { line -> if (line.isNotBlank()) db.execSQL(line) }
+            BufferedReader(InputStreamReader(inStream)).forEachLine { line ->
+                if (line.isNotBlank()) db.execSQL(
+                    line
+                )
+            }
         } catch (e: IOException) {
             e.printStackTrace()
         } catch (e: NullPointerException) {
@@ -59,21 +64,30 @@ class DataBaseHelper internal constructor(private val context: Context) : SQLite
 
     fun getList(orderByPrefix: Boolean): ArrayList<CountriesListItem> {
         val data = ArrayList<CountriesListItem>()
-        val cursor = db.rawQuery("SELECT * FROM countries ORDER BY ${if (orderByPrefix) "code" else "name"} ASC", null)
+        val cursor = db.rawQuery(
+            "SELECT * FROM countries ORDER BY ${if (orderByPrefix) "code" else "name"} ASC",
+            null
+        )
+
+        val idIdx = cursor.getColumnIndex("id")
+        val codeIdx = cursor.getColumnIndex("code")
+        val nameIdx = cursor.getColumnIndex("name")
+        val timezoneIdx = cursor.getColumnIndex("timezone")
+        val iso2Idx = cursor.getColumnIndex("iso2")
 
         while (cursor.moveToNext()) {
-            val id = cursor.getString(cursor.getColumnIndex("id"))
-            val prefix = cursor.getString(cursor.getColumnIndex("code"))
-            val country = cursor.getString(cursor.getColumnIndex("name"))
-            val timezone = cursor.getString(cursor.getColumnIndex("timezone"))
-            val iso2 = cursor.getString(cursor.getColumnIndex("iso2"))
+            val id = cursor.getString(idIdx)
+            val prefix = cursor.getString(codeIdx)
+            val country = cursor.getString(nameIdx)
+            val timezone = cursor.getString(timezoneIdx)
+            val iso2 = cursor.getString(iso2Idx)
             val item = CountriesListItem(
-                    id,
-                    country,
-                    prefix,
-                    timezone,
-                    iso2,
-                    context
+                id,
+                country,
+                prefix,
+                timezone,
+                iso2,
+                context
             )
             data.add(item)
         }
